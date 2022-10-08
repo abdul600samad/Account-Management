@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand text-danger" href="#" >Account</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'atten' %}">Attendence</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'additems' %}">Add Items</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'viewitems' %}">View Items</a>
+                    </li>
+                    
+                    {% if 'name' in request.session %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                    {% else %}
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </nav>
+        </div>
+    </div>
+</div>

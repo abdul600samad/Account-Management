@@ -1,0 +1,51 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+      <h2 class="alert alert-info text-center mt-5">All Submitted Items</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for ob1 in obj1 %}
+                <tr>
+                  {% for item in ob1 %}
+                  <td>{{item}}</td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+                <tr>
+                  <td>Total Price</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>{{total_sum}}</td>
+                </tr>
+                <tr>
+                  <td>Total Price</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><button onclick="myfunc()">Print</button></td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+<script type="text/javascript">
+  function myfunc()
+  {
+    window.print();
+  }
+
+
+</script>
+{% endblock content %}

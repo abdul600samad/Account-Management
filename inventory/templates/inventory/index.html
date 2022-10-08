@@ -1,0 +1,73 @@
+{% extends 'inventory/base.html' %}
+{% block navbar %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+    {% include 'inventory/navbar.html' %}
+    </div>
+  </div>
+</div>
+{% endblock navbar %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12 mt-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Day</th>
+            <th scope="col">Mudeem</th>
+            <th scope="col">Mudeem Hours</th>
+            
+            <th scope="col">Najim</th>
+            <th scope="col">Najim Hours</th>
+
+            <th scope="col">Nijam</th>
+            <th scope="col">Nijam Hours</th>
+
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ob in obj %}
+          <tr>
+            <td>{{ob.id}}</td>
+            <td>{{ob.day}}</td>
+            <td>{{ob.mudeem}}</td>
+            <td>{{ob.mudeem_hour}}</td>
+            <td>{{ob.najim}}</td>
+            <td>{{ob.najim_hour}}</td>
+            <td>{{ob.nijam}}</td>
+            <td>{{ob.nijam_hour}}</td>
+            <td>
+              <form action="{% url 'delete' ob.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Delete" class="btn btn-danger">
+              </form>
+            </td>
+            <td>
+              <a href="{% url 'update' id=ob.id %}" class="btn btn-info" style="padding-right:17px;padding-left:18px;">Edit</a>
+            </td>
+          </tr>        
+          {% endfor %}
+          <tr>
+            <td></td>
+            <td>Total Attendence</td>
+            <td><p>{{total_mud}}+{{total_hour_mud}}</p></td> <td></td>
+            <td><p>{{total_naj}}+{{total_hour_naj}}</p></td><td></td>
+            <td><p>{{total_nij}}+{{total_hour_nij}}</p></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Total Price</td>
+            <td>{{price_mud}}</td><td></td>
+            <td>{{price_naj}}</td><td></td>
+            <td>{{price_nij}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+{% endblock content %}

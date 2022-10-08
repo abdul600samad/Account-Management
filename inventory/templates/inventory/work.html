@@ -1,0 +1,29 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <h2 class="alert alert-info mt-5 text-center">Add Items</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="number">Number</label>
+            <input type="text" name="num" id="number" class="form-control">
+            
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control">
+
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" class="form-control">
+            
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" class="form-control">
+            
+            <input type="submit" value="Add" class="btn btn-success mt-3" style="padding-left:17px;padding-right:17px;">
+        </form>
+        <a href="{% url 'viewitems' %}" class="btn btn-success mt-3" style="padding-left:15px;padding-right:15px;">View</a>
+    </div>
+    <div class="col-sm-4"></div>
+
+</div>
+{% endblock content %}

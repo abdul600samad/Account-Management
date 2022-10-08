@@ -1,0 +1,50 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block navbar %}
+
+{% endblock navbar %}
+
+{% block content %} 
+<div class="row">
+    <div class="col-sm-4">
+        
+    </div>
+    <div class="col-sm-4">
+        
+                <h1 class="alert alert-info text-center mt-5">Sign Up Form</h1>
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <label for="uname">Username</label>
+                    <input type="text" name="username" id="uname" class="form-control">
+            
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control">
+            
+                    
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" id="first_name" class="form-control">
+                    
+                    <label for="last_name">Last Name</label>
+                    <input type="text" name="last_name" id="last_name" class="form-control">
+                    
+                    <label for="password1">Password</label>
+                    <input type="password" name="password1" id="password1" class="form-control">
+                    
+                    <label for="password2">Repeat Password</label>
+                    <input type="password" name="password2" id="password2" class="form-control">
+            
+                    <input type="submit" value="Sign Up" class="btn btn-success mt-3">
+
+                </form>
+                <a href="{% url 'login' %}" class="btn btn-success mt-3" style="padding-left:17px;padding-right:18px;">Log In</a>
+                {{error}}
+        </div>
+    </div>
+    </div>
+</div>
+<div class="col-sm-4">
+        
+</div>
+{% endblock content %}
